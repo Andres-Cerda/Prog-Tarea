@@ -2,23 +2,62 @@
 
 int main(){
 
-    int clave = 21213041;
+   long clave = 21213041;
+   long clave_ingresada = 0;
 
-    printf("Bienvenido, a continuacion es escriba su clave de acceso: \n");
+   printf("Bienvenido, ingrese su clave a continuacion: \n\n");
+   scanf("%lu", &clave_ingresada);
+
+   if (clave_ingresada == clave) {
+
+       printf( "Clave ingresada correctamente, Bienvenido");
+
+   }  else {
+
+        printf("Clave incorrecta\n");
+        printf("dos intentos restantes\n");
+         printf("Por favor ingrese nuevamente su clave:\n ");
+        scanf("%lu", &clave_ingresada);
     
-    scanf("%i", &clave);
+          if (clave_ingresada == clave){
 
-    switch(clave){
-        
-        case 21213041: printf("Felicidades, has ingresado correctamente la clave.\n");
-                       break;
-        case 2: printf ("recuerde que su clave es su RUT sin el digito verificador\n");
-                       break;
-        case 3: printf (" Le quedan dos intentos")                              
+             printf("Clave ingresada correctamente, Bienvenido\n");
+                
+                } else { 
 
-        defaul: printf( "No era su clave");
+                    printf("Clave incorrecta\n");
+                    printf("Recuerde que la clave es el rut sin el digito verificador\n");
+                    printf("un intentos restantes\n");
+                     printf("Por favor ingrese nuevamente su clave: \n");
+                    scanf("%lu", &clave_ingresada);  
 
-    }
+                       if(clave_ingresada == clave){ 
+
+                            printf("Clave ingresada correctamente, Bienvenido");
+
+                           } else {  
+
+                               printf ( "Clave incorrecta, usuario bloquedo");
+
+
+
+                                  }
+
+
+                
+
+
+                }
+   }
+
+            
+
+
+
+       
+   
+
+
 
  
     return 0;

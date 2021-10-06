@@ -23,12 +23,9 @@ int main(){
 
         printf (" El numero mayor es: %i", num3);
 
-    } else if (num3 == num1 && num1 == num2) {
+    } else {
     
         printf(" Sus numeros son iguales ");
-
-    } else { printf("Introduzca numeros por favor");
-    
     }
     
 
