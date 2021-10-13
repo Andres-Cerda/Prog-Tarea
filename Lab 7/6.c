@@ -8,8 +8,8 @@ int numero2=1;
 
 
 int main(){
-    printf(" Bienvenido a Fibonacci\n");
-    printf("ingrese numero para ejecutar la sucesion\n");
+    printf(" Buenas a continuacion se mostrara el codigo Fibonacci\n");
+    printf("ingrese numero por favor \n");
     scanf("%d", &numero);
 
     printf("0\n");
