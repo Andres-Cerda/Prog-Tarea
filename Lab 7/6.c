@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 int numero;
-int suma;
+int resultado;
 int numero1=0;
 int numero2=1;
 
@@ -14,11 +14,11 @@ int main(){
 
     printf("0\n");
 
-        for (int i = 0; i <= numero; i++)
+        for (int p = 0; p <= numero; p++)
         {
-            suma= numero1 + numero2;
-            printf("%d\n",suma);
+            resultado= numero1 + numero2;
+            printf("%d\n",resultado);
             numero1=numero2;
-            numero2=suma;          
+            numero2=resultado;          
         }
         return 0;
