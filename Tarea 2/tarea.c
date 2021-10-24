@@ -94,8 +94,6 @@ case 2 : /* aqui lo que se desea es crear el usuario, entonces se le pedira el r
              
              if(usuario_creado == usuario_creado0){
                  printf("Usuario ingresado correctamente\n\n");
-             } else {
-                 printf("Dado que no puede ingresar correctamente el usuario creado el programa se apagara\n");
              }
 
         
