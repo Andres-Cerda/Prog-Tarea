@@ -117,18 +117,21 @@ default : /* esta opcion es para limitar las opciones a 1 y 2 */
     printf("-----------------------\n");
     printf("1) venta de producto\n");
     printf("2) editar inventario\n");
+    printf("elija una de las dos opciones\n");
     scanf("%d", &menu); 
     
     switch (menu)
     {
-    case 1:
-        /* code */
+    case 1: printf("venta de producto");
+             
         break;
 
-    case 2: 
+    case 2: printf("editar inventario");
 
+        break;
+            
 
-    default:
+    default: printf("hola mundo gaturro");
         break;
     }
 
@@ -137,3 +140,4 @@ default : /* esta opcion es para limitar las opciones a 1 y 2 */
 
 return 0;
 } 
+
