@@ -25,7 +25,7 @@ case 1 : printf("Ingrese su usuario, por favor\n");
          
           if (usuario_trabajador0 == usuario_trabajador ) {
 
-            printf( "Usuario ingresado correctamente, Bienvenido");
+            printf( "Usuario ingresado correctamente, Bienvenido\n");
 
               }  else {
 
@@ -48,7 +48,7 @@ case 1 : printf("Ingrese su usuario, por favor\n");
 
                             if(usuario_trabajador0 == usuario_trabajador){ 
 
-                             printf("Usuario ingresado correctamente, Bienvenido");
+                             printf("Usuario ingresado correctamente, Bienvenido\n");
 
                              } else {  
 
@@ -97,7 +97,7 @@ default : printf(" numero no valido\n");
     
      break;
            
-} 
+} if (opcion == 1 || opcion == 2) { printf(" Hola mundo gaturro"); }
 
 
 return 0;
