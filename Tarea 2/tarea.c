@@ -31,7 +31,7 @@ case 1 : printf("Ingrese su usuario, por favor\n");
 
                 printf("Clave incorrecta\n");
                 printf("dos intentos restantes\n");
-                printf("Por favor ingrese nuevamente su clave:\n ");
+                printf("Por favor ingrese nuevamente su usuario:\n ");
                 scanf("%lu", &usuario_trabajador);
     
                     if (usuario_trabajador0 == usuario_trabajador){
@@ -43,7 +43,7 @@ case 1 : printf("Ingrese su usuario, por favor\n");
                           printf("Clave incorrecta\n");
                           printf("Recuerde que la clave es el rut con el digito verificador pero sin guion\n");
                           printf("un intentos restantes\n");
-                          printf("Por favor ingrese nuevamente su clave: \n");
+                          printf("Por favor ingrese nuevamente su usuario: \n");
                           scanf("%lu", &usuario_trabajador);  
 
                             if(usuario_trabajador0 == usuario_trabajador){ 
