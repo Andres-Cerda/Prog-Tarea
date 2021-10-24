@@ -24,8 +24,8 @@ scanf("%d",&opcion);
 switch (opcion)
 
 {
-case 1 : /* a continuacion se hara una estructura if para cuando ingrese el usuario le diga si es correcto 
-        en caso de no serlo se dira que es incorrecto que le queda cierta cantidad de intentos hasta que se bloquee */
+case 1 : /* a continuacion se hara una estructura if para que cuando ingrese el usuario le diga si es correcto, 
+        en caso de no serlo se dira que es incorrecto y que le queda cierta cantidad de intentos hasta que se bloquee */
          printf("Ingrese su usuario, por favor\n");
          scanf("%lu", &usuario_trabajador);
          
@@ -75,7 +75,7 @@ case 1 : /* a continuacion se hara una estructura if para cuando ingrese el usua
     
     break;
 
-case 2 : /* aqui lo que se desea es crear el usuario, entonces se le pedira el rut sin guion y se le dara un valor 
+case 2 : /* aqui lo que se desea es crear el usuario, entonces se le pedira el rut sin guion y se le dara un valor, 
           para comprobar que no se equivoque se le pedira de nuevo pero ese valor se le asignara a otra variable para poder comparar */
 
          printf("Escriba su rut con digito verificador pero sin guion para crear su usuario\n");
@@ -107,7 +107,7 @@ default : /* esta opcion es para limitar las opciones a 1 y 2 */
         printf(" numero no valido\n"); 
     
      break;
-     
+
  /* el if de a continuacion es para que al momento de que la opcion ingresada no sea 1 o 2, no siga con las demas intrucciones 
  y solo se apague el programa*/          
 } if (opcion == 1 || opcion == 2) {
