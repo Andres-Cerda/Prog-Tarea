@@ -129,7 +129,7 @@ default : /* esta opcion es para limitar las opciones a 1 y 2 */
         break;
             
 
-    default: printf("hola mundo gaturro");
+    default: printf("hola mundo ");
         break;
     }
 
