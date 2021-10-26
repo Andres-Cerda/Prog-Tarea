@@ -6,12 +6,14 @@ int main () {
 int  Sala = 20;
 int  Bodega = 68;
 int producto = 0;
-long usuario_trabajador0 = 214275721;
+long usuario_trabajador0 = 123456789;
 long usuario_trabajador = 0;  
 long usuario_creado = 0;
 long usuario_creado0 = 0;
 int opcion = 0;
 int menu = 0;
+int inventario = 0;
+int produtos_agregados = 0;
 printf ("El Programa ha sido encendido\n");
 printf ("Hola bienvenido al sistema regulador de mercaderia\n");
 
@@ -36,7 +38,7 @@ case 1 : /* a continuacion se hara una estructura if para que cuando ingrese el 
               }  else {
 
                 printf("Clave incorrecta\n");
-                printf("dos intentos restantes\n");
+                printf("Dos intentos restantes\n");
                 printf("Por favor ingrese nuevamente su usuario:\n ");
                 scanf("%lu", &usuario_trabajador);
     
@@ -48,7 +50,7 @@ case 1 : /* a continuacion se hara una estructura if para que cuando ingrese el 
 
                           printf("Clave incorrecta\n");
                           printf("Recuerde que la clave es el rut con el digito verificador pero sin guion\n");
-                          printf("un intentos restantes\n");
+                          printf("Un intentos restantes\n");
                           printf("Por favor ingrese nuevamente su usuario: \n");
                           scanf("%lu", &usuario_trabajador);  
 
@@ -88,7 +90,7 @@ case 2 : /* aqui lo que se desea es crear el usuario, entonces se le pedira el r
              printf("Usuario ingresado correctamente\n\n");
          
          } else {
-             printf("recuerde que el usuario ingresado es %lu\n", usuario_creado);
+             printf("Recuerde que el usuario ingresado es %lu\n", usuario_creado);
              printf("Ingrese nuevamente su usuario, por favor\n");
              scanf("%lu", &usuario_creado0);
              
@@ -102,7 +104,7 @@ case 2 : /* aqui lo que se desea es crear el usuario, entonces se le pedira el r
 
 default : /* esta opcion es para limitar las opciones a 1 y 2 */
   
-        printf(" numero no valido\n"); 
+        printf("Numero no valido\n"); 
     
      break;
 
@@ -120,11 +122,29 @@ default : /* esta opcion es para limitar las opciones a 1 y 2 */
     
     switch (menu)
     {
-    case 1: printf("venta de producto");
+    case 1: printf("Venta de producto\n\n");
              
         break;
 
-    case 2: printf("editar inventario");
+    case 2: printf("Ingrese 1 si quiere agregar mas productos y en caso de querer descontar, ingrese 2\n\n");
+            scanf("%d", &inventario);
+    
+    
+        switch (inventario)
+    {
+            case 1 : printf("Ingrese la cantidad de productos que quiere agregar\n");
+                     scanf("%d", &produtos_agregados);
+                     Bodega = Bodega + produtos_agregados; 
+                     printf("Se a actualizado la bodega correctamente");
+                     printf("En bodega hay %d productos\n", Bodega);
+                     printf("Se finalizan los cambios en el inventario");
+            break;
+    
+            case 2 : 
+
+             break;
+    }
+    
 
         break;
             
