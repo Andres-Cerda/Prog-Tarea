@@ -3,17 +3,23 @@
 int main () {
 
 
-int  Sala = 20;
-int  Bodega = 68;
-int producto = 0;
+int  Sala [4] = {101,102,103,103};
+int  Cantidad_Sala[4]={8,8,7,5};
+
+int  Bodega[4]= {101,102,103,104};
+int  Cantidad_Bodega[4]= {5,7,8,8};
+
 long usuario_trabajador0 = 123456789;
-long usuario_trabajador = 0;  
+long usuario_trabajador = 0; 
+
 long usuario_creado = 0;
 long usuario_creado0 = 0;
-int opcion = 0;
-int menu = 0;
-int inventario = 0;
-int produtos_agregados = 0;
+
+int  opcion = 0;
+int  menu = 0;
+int  inventario = 0;
+int  produtos_agregados = 0;
+
 printf ("El Programa ha sido encendido\n");
 printf ("Hola bienvenido al sistema regulador de mercaderia\n");
 
