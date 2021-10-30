@@ -12,16 +12,23 @@ int  Cantidad_Bodega[4]= {5,7,8,8};
 long usuario_trabajador0 = 123456789;
 long usuario_trabajador = 0; 
 
+char producto_1[6]= "Papas";
+char producto_2[7]= "fideos";
+char producto_3[7]= "Aceite";
+char producto_4[6]= "Leche";
+
 long usuario_creado = 0;
 long usuario_creado0 = 0;
 
 int  opcion = 0;
 int  menu = 0;
 int  inventario = 0;
-int  produtos_agregados = 0;
+int  codigo_productos_agregados;
+int  cantidad_productos_agregados;
 
 printf ("El Programa ha sido encendido\n");
 printf ("Hola bienvenido al sistema regulador de mercaderia\n");
+
 
 
 printf ("En caso de tener usuario ingrese el numero 1 \nSi no tiene y desea uno, ingrese el numero 2\n");
@@ -124,43 +131,7 @@ default : /* esta opcion es para limitar las opciones a 1 y 2 */
     printf("1) venta de producto\n");
     printf("2) editar inventario\n");
     printf("elija una de las dos opciones\n");
-    scanf("%d", &menu); 
-    
-    switch (menu)
-    {
-    case 1: printf("Venta de producto\n\n");
-             
-        break;
-
-    case 2: printf("Ingrese 1 si quiere agregar mas productos y en caso de querer descontar, ingrese 2\n\n");
-            scanf("%d", &inventario);
-    
-    
-        switch (inventario)
-    {
-            case 1 : printf("Ingrese la cantidad de productos que quiere agregar\n");
-                     scanf("%d", &produtos_agregados);
-                     Bodega = Bodega + produtos_agregados; 
-                     printf("Se a actualizado la bodega correctamente");
-                     printf("En bodega hay %d productos\n", Bodega);
-                     printf("Se finalizan los cambios en el inventario");
-            break;
-    
-            case 2 : 
-
-             break;
-    }
-    
-
-        break;
-            
-
-    default: printf("hola mundo ");
-        break;
-    }
-
-}
-
+    scanf("%d", &menu); }
 
 return 0;
 } 
