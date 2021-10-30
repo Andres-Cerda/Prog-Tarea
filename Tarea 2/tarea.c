@@ -222,7 +222,8 @@ default : /* esta opcion es para limitar las opciones a 1 y 2 */
                      } else if (Sala[1] == codigo_producto_robado){
                          
                          printf("Se restaran %d existencias del producto %s \n", cantidad_productos_robados, producto_2 );
-                         if(Cantidad_Sala[1] >= cantidad_productos_robados ){
+                         if(Cantidad_Sala[1] >= cantidad_productos_robados )
+                         {
                         Sala[1]= Sala[1] - cantidad_productos_robados;
                         printf("El almacen a sido actualizado correctamente \n");
                         printf("%d existencias totales del producto %s", Cantidad_Sala[1], producto_2);
@@ -233,7 +234,8 @@ default : /* esta opcion es para limitar las opciones a 1 y 2 */
                      }else if (Sala[2] == codigo_producto_robado){
                          
                          printf("Se restaran %d existencias del producto %s \n", cantidad_productos_robados, producto_3 );
-                         if(Cantidad_Sala[2] >= cantidad_productos_robados){
+                         if(Cantidad_Sala[2] >= cantidad_productos_robados)
+                         {
                          Cantidad_Bodega[2]= Cantidad_Sala[2] - cantidad_productos_robados;
                          printf("El almacen a sido actualizado correctamente \n");
                          printf("%d existencias totales del producto %s", Cantidad_Sala[2], producto_3);
@@ -243,7 +245,8 @@ default : /* esta opcion es para limitar las opciones a 1 y 2 */
                      }else if (Sala[3] == codigo_producto_robado ){
                          
                          printf("Se restaran %d existencias del producto %s \n", cantidad_productos_robados, producto_4 );
-                         if(Cantidad_Sala[3] >= cantidad_productos_robados){
+                         if(Cantidad_Sala[3] >= cantidad_productos_robados)
+                         {
                          Cantidad_Sala[3]= Cantidad_Sala[3] - cantidad_productos_robados;
                          printf("El almacen a sido actualizado correctamente \n");
                          printf("%d existencias totales del producto %s", Cantidad_Sala[3], producto_4);
