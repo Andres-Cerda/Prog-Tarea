@@ -1,20 +1,21 @@
-#include <stdio.h>
+/* if( menu == 1 ) { printf("a"); 
 
-int main(){
- 
-  char nombre[15];
-    char apellido[20]; 
 
-    char nombres_clientes[50][15];
-    char apellidos_clientes[50][20];
+     } else if (menu == 2) {
 
-    int cantidad_clientes = 0;
-    printf("Ingrese su nombre:\n");
-    scanf("%s", nombres_clientes[cantidad_clientes]);
-    printf("Ingrese su apellido:\n");
-    scanf("%s", apellidos_clientes[cantidad_clientes]);
-    cantidad_clientes++;
-    printf("Bienvenido %s %s!!\n", nombres_clientes[0], apellidos_clientes[0]);
+        printf("Ingrese numero 1 si desea ingresar productos y numero 2 si desea descontarlos");+
+        scanf("%d", &inventario);
 
-    return 0;
-}
+        if (inventario == 1 ) {
+                     printf("Ingrese el codigo del producto que quiere agregar\n");
+                     scanf("%d", &codigo_productos_agregados);
+                     printf("Ingrese la cantidad de productos que quiere agregar\n");
+                     scanf("%d", &cantidad_productos_agregados);
+
+                     if (Bodega[0] == codigo_productos_agregados)
+                     {
+                          printf("Se agregaron %d nuevos/as %s", cantidad_productos_agregados, producto_1 );
+                     
+                     } else { printf(" puto ");} } 
+                     
+                     }else {printf("puto 3 ");}  }*/
