@@ -13,7 +13,7 @@ long usuario_trabajador0 = 123456789;
 long usuario_trabajador = 0; 
 
 char producto_1[6]= "Papas";
-char producto_2[7]= "fideos";
+char producto_2[7]= "Fideos";
 char producto_3[7]= "Aceite";
 char producto_4[6]= "Leche";
 
@@ -131,7 +131,63 @@ default : /* esta opcion es para limitar las opciones a 1 y 2 */
     printf("1) venta de producto\n");
     printf("2) editar inventario\n");
     printf("elija una de las dos opciones\n");
-    scanf("%d", &menu); }
+    scanf("%d", &menu); } 
+
+    if(menu == 1 || menu == 2 ) {
+
+        if(menu ==1 ){
+
+
+         }
+
+           else if(menu == 2){
+
+             printf("Ingrese numero 1 si desea ingresar productos y numero 2 si desea descontarlos\n");
+             scanf("%d", &inventario);
+
+            if (inventario == 1 ) {
+                     printf("Ingrese el codigo del producto que quiere agregar\n");
+                     scanf("%d", &codigo_productos_agregados);
+                     printf("Ingrese la cantidad de productos que quiere agregar\n");
+                     scanf("%d", &cantidad_productos_agregados);
+
+                     if (Bodega[0] == codigo_productos_agregados)
+                     {
+                          printf("Se agregaron %d existencias al producto %s", cantidad_productos_agregados, producto_1 );
+                          Cantidad_Bodega[0]= Cantidad_Bodega[0] + cantidad_productos_agregados;
+                        
+                     
+                     } else if (Bodega[1] == codigo_productos_agregados){
+                         
+                         printf("Se agregaron %d existencias al producto %s", cantidad_productos_agregados, producto_2 );
+                        Cantidad_Bodega[1]= Cantidad_Bodega[1] + cantidad_productos_agregados;
+
+
+                     }else if (Bodega[2] == codigo_productos_agregados){
+                         
+                         printf("Se agregaron %d existencias al producto %s", cantidad_productos_agregados, producto_3 );
+                         Cantidad_Bodega[2]= Cantidad_Bodega[2] + cantidad_productos_agregados;
+                     
+                     }else if (Bodega[3] == codigo_productos_agregados){
+                         
+                         printf("Se agregaron %d existencias al producto %s ", cantidad_productos_agregados, producto_4 );
+                         Cantidad_Bodega[3]= Cantidad_Bodega[3] + cantidad_productos_agregados;
+                     }
+
+
+        } else if (inventario == 2) { printf("proximamente se descontara");
+
+
+        } else {printf("ingrese una opcion valida"); }
+
+
+
+    } else {   printf("ingrese una opcion valida");}
+    
+} 
+
+    
+    
 
 return 0;
 } 
