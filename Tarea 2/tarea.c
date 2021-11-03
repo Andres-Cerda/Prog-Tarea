@@ -3,10 +3,8 @@
 int main () {
 
 
-int  Sala [4] = {101,102,103,104};
+int  producto [4] = {101,102,103,104};
 int  Cantidad_Sala[4]={8,8,7,5};
-
-int  Bodega[4]= {101,102,103,104};
 int  Cantidad_Bodega[4]= {5,7,8,8};
 
 long usuario_trabajador0 = 123456789;
@@ -28,9 +26,11 @@ int  inventario_2 = 0;
 int  codigo_productos_agregados = 0;
 int  cantidad_productos_agregados = 0;
 
-int codigo_producto_robado = 0;
-int cantidad_productos_robados = 0;
-
+int  codigo_producto_robado = 0;
+int  cantidad_productos_robados = 0;
+int  codigo_producto_falla = 0;
+int  cantidad_productos_fallados_sala = 0;
+int  cantidad_productos_fallados_bodega = 0;
 
 printf ("El Programa ha sido encendido\n");
 printf ("Hola bienvenido al sistema regulador de mercaderia\n");
@@ -161,27 +161,27 @@ default : /* esta opcion es para limitar las opciones a 1 y 2 */
                      printf("Ingrese la cantidad de productos que quiere agregar\n");
                      scanf("%d", &cantidad_productos_agregados);
 
-                     if (Bodega[0] == codigo_productos_agregados)
+                     if (producto[0] == codigo_productos_agregados)
                      {
                           printf("Se agregaron %d existencias al producto %s \n", cantidad_productos_agregados, producto_1 );
                           Cantidad_Bodega[0]= Cantidad_Bodega[0] + cantidad_productos_agregados;
                           printf("El almacen a sido actualizado correctamente \n");
                         
                      
-                     } else if (Bodega[1] == codigo_productos_agregados){
+                     } else if (producto[1] == codigo_productos_agregados){
                          
                          printf("Se agregaron %d existencias al producto %s \n", cantidad_productos_agregados, producto_2 );
                         Cantidad_Bodega[1]= Cantidad_Bodega[1] + cantidad_productos_agregados;
                         printf("El almacen a sido actualizado correctamente \n");
 
 
-                     }else if (Bodega[2] == codigo_productos_agregados){
+                     }else if (producto[2] == codigo_productos_agregados){
                          
                          printf("Se agregaron %d existencias al producto %s \n", cantidad_productos_agregados, producto_3 );
                          Cantidad_Bodega[2]= Cantidad_Bodega[2] + cantidad_productos_agregados;
                          printf("El almacen a sido actualizado correctamente \n");
                      
-                     }else if (Bodega[3] == codigo_productos_agregados){
+                     }else if (producto[3] == codigo_productos_agregados){
                          
                          printf("Se agregaron %d existencias al producto %s \n", cantidad_productos_agregados, producto_4 );
                          Cantidad_Bodega[3]= Cantidad_Bodega[3] + cantidad_productos_agregados;
@@ -207,7 +207,7 @@ default : /* esta opcion es para limitar las opciones a 1 y 2 */
                      printf("Indique cual fue la cantidad sustraida\n");
                      scanf("%d", &cantidad_productos_robados);
 
-                     if (Sala[0] == codigo_producto_robado)
+                     if (producto[0] == codigo_producto_robado)
                      {
                           printf("Se restaran %d existencias del producto %s \n", cantidad_productos_robados, producto_1 );
                           if( Cantidad_Sala[0] >= cantidad_productos_robados)
@@ -219,19 +219,19 @@ default : /* esta opcion es para limitar las opciones a 1 y 2 */
                           } else { printf("No habian tantas existecias del producto %s en sala \n", producto_1);}
                         
                      
-                     } else if (Sala[1] == codigo_producto_robado){
+                     } else if (producto[1] == codigo_producto_robado){
                          
                          printf("Se restaran %d existencias del producto %s \n", cantidad_productos_robados, producto_2 );
                          if(Cantidad_Sala[1] >= cantidad_productos_robados )
                          {
-                        Sala[1]= Sala[1] - cantidad_productos_robados;
+                        Cantidad_Sala[1]= Cantidad_Sala[1] - cantidad_productos_robados;
                         printf("El almacen a sido actualizado correctamente \n");
                         printf("%d existencias totales del producto %s", Cantidad_Sala[1], producto_2);
 
                         } else { printf("No habian tantas existecias del producto %s en sala\n", producto_2);}
 
 
-                     }else if (Sala[2] == codigo_producto_robado){
+                     }else if (producto[2] == codigo_producto_robado){
                          
                          printf("Se restaran %d existencias del producto %s \n", cantidad_productos_robados, producto_3 );
                          if(Cantidad_Sala[2] >= cantidad_productos_robados)
@@ -242,7 +242,7 @@ default : /* esta opcion es para limitar las opciones a 1 y 2 */
 
                          } else { printf("No habian tantas existecias del producto %s en sala\n", producto_3);}
                      
-                     }else if (Sala[3] == codigo_producto_robado ){
+                     }else if (producto[3] == codigo_producto_robado ){
                          
                          printf("Se restaran %d existencias del producto %s \n", cantidad_productos_robados, producto_4 );
                          if(Cantidad_Sala[3] >= cantidad_productos_robados)
@@ -258,19 +258,59 @@ default : /* esta opcion es para limitar las opciones a 1 y 2 */
                     
                 break;
             
-            default:
+            case 2:  
+            
+                     printf("Escriba el codigo del producto que tiene una falla o se ha vencido, por favor\n");
+                     scanf("%d", &codigo_producto_falla);
+                     printf("Indique cuantos productos fallaron en Bodega\n");
+                     scanf("%d", &cantidad_productos_fallados_bodega);
+                     printf("Indique cuantos productos fallaron en Sala\n");
+                     scanf("%d", &cantidad_productos_fallados_sala);
+
+                     if (producto[0] == codigo_producto_falla)
+                        {
+                         if(cantidad_productos_fallados_bodega != 0){ 
+                             if (Cantidad_Bodega[0] >= cantidad_productos_fallados_bodega) { 
+                             printf("Se restaran %d cantidad de existencias al productos %s en Bodega\n",
+                             cantidad_productos_fallados_bodega, producto_1);
+                             Cantidad_Bodega[0]= Cantidad_Bodega[0] - cantidad_productos_fallados_bodega;
+                             printf("El almacen a sido actualizado correctamente \n"); 
+                             printf("%d cantidad de %s \n",Cantidad_Bodega[0], producto_1);
+                             } else { printf("No habian tantas existencias del producto %s en sala\n", producto_1); }
+
+                         } if (cantidad_productos_fallados_sala != 0) {
+                             if (Cantidad_Sala[0] >= cantidad_productos_fallados_sala) { 
+                             printf("Se restaran %d cantidad de existencias al productos %s en Sala\n",
+                             cantidad_productos_fallados_sala, producto_1);
+                             Cantidad_Sala[0]= Cantidad_Sala[0] - cantidad_productos_fallados_sala;
+                             printf("El almacen a sido actualizado correctamente \n");
+                             printf("%d cantidad de % \n",Cantidad_Sala[0], producto_1);
+                             } else { printf("No habian tantas existencias del producto %s en sala\n", producto_1); }
+                             
+                             }
+
+                          
+                        
+                     
+                     
                 break;
-            }
+
+
+            default: printf("ingrese una opcion valida");
+                break;
+                
+                  }}  
+            
 
 
         } else {printf("ingrese una opcion valida"); }
 
 
 
-    } else {   printf("ingrese una opcion valida");}
+    } else {  printf("ingrese una opcion valida");}
     
 } 
-
+           
     
     
 
