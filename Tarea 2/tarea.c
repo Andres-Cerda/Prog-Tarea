@@ -142,7 +142,10 @@ default : /* esta opcion es para limitar las opciones a 1 y 2 */
 
     if(menu == 1 || menu == 2 ) {
 
-        if(menu ==1 ){
+        if(menu ==1 ){ 
+
+            printf("Ingrese el codigo del producto o los productos que va a vender\n");
+            
 
 
          }
@@ -296,7 +299,7 @@ default : /* esta opcion es para limitar las opciones a 1 y 2 */
                              cantidad_productos_fallados_bodega, producto_2);
                              Cantidad_Bodega[1]= Cantidad_Bodega[1] - cantidad_productos_fallados_bodega;
                              printf("El almacen a sido actualizado correctamente \n"); 
-                             printf("%d cantidad de %s \n",Cantidad_Bodega[0], producto_2);
+                             printf("%d cantidad de %s \n",Cantidad_Bodega[1], producto_2);
                              } else { printf("No habian tantas existencias del producto %s en sala\n", producto_2); }
 
                          } if (cantidad_productos_fallados_sala != 0) {
