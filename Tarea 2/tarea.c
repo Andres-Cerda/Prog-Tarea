@@ -23,15 +23,21 @@ int  opcion = 0;
 int  menu = 0;
 int  inventario = 0;
 int  inventario_2 = 0;
+int  compra = 0;
+int  Total = 0;
 
 int  codigo_productos_agregados = 0;
 int  cantidad_productos_agregados = 0;
 
 int  codigo_producto_robado = 0;
 int  cantidad_productos_robados = 0;
+
 int  codigo_producto_falla = 0;
 int  cantidad_productos_fallados_sala = 0;
 int  cantidad_productos_fallados_bodega = 0;
+
+int  codigo_producto_vendido = 0; 
+int  cantidad_producto_vendido = 0;
 
 printf ("El Programa ha sido encendido\n");
 printf ("Hola bienvenido al sistema regulador de mercaderia\n");
@@ -142,13 +148,62 @@ default : /* esta opcion es para limitar las opciones a 1 y 2 */
 
     if(menu == 1 || menu == 2 ) {
 
-        if(menu ==1 ){ 
+        if(menu == 1 ){ 
 
-            printf("Ingrese el codigo del producto o los productos que va a vender\n");
+            do
+            {    
+                printf("ingrese el codigo del producto quiere vender \n");
+                scanf("%d", &codigo_producto_vendido);
+                printf("ingrese la cantidad de existencias que quiere vender \n");+
+                scanf("%d", &cantidad_producto_vendido);
+                if(producto[0] == codigo_producto_vendido){
+                    if(Cantidad_Sala[0] >= cantidad_producto_vendido){ 
+                        printf("El valor de ese articulo es %d \n", precios[0]);
+                        printf("Se restaran %d existencias al producto %s \n", cantidad_producto_vendido, producto_1);
+                        producto[0] = producto[0] - cantidad_producto_vendido;
+                        Total = Total + (precios[0] * cantidad_producto_vendido);
+                    } else { printf("Se restaran %d existencias al producto %s \n", cantidad_producto_vendido, producto_1);
+                      
+                      
+                      
+                    
+                    }
+            }   else if (producto[1] == codigo_producto_vendido){
+                 if(Cantidad_Sala[1] >= cantidad_producto_vendido){ 
+                        printf("El valor de ese articulo es %d \n", precios[1]);
+                        printf("Se restaran %d existencias al producto %s \n", cantidad_producto_vendido, producto_2);
+                        Total = Total + (precios[1] * cantidad_producto_vendido);
+                    } 
+            }  else if (producto[2] == codigo_producto_vendido){
+                if(Cantidad_Sala[2] >= cantidad_producto_vendido){ 
+                        printf("El valor de ese articulo es %d \n", precios[2]);
+                        printf("Se restaran %d existencias al producto %s \n", cantidad_producto_vendido, producto_3);
+                        Total = Total + (precios[2] * cantidad_producto_vendido);
+                    }
+            } else if (producto[3] == codigo_producto_vendido){
+               if(Cantidad_Sala[3] >= cantidad_producto_vendido){ 
+                        printf("El valor de ese articulo es %d \n", precios[3]);
+                        printf("Se restaran %d existencias al producto %s \n", cantidad_producto_vendido, producto_4);
+                        Total = Total + (precios[3] * cantidad_producto_vendido);
+                    }
+            } else { printf("ingrese un codigo valido"); }
             
+            if(producto[0] == codigo_producto_vendido 
+            || producto[1] == codigo_producto_vendido 
+            || producto[2] == codigo_producto_vendido
+            || producto[3] == codigo_producto_vendido ){
 
+                  printf ("¿Ingresara otro productos?\n");
+                  printf("1) Si \n 2) No\n");
+                  scanf("%d", &compra);
+                  }
+                
+            } while (compra == 1);
 
-         }
+            printf("%d es el total de la compra \n", Total);
+            
+ 
+     }
 
            else if(menu == 2){
 
