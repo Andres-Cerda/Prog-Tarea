@@ -225,11 +225,17 @@ default : /* esta opcion es para limitar las opciones a 1 y 2 */
                   printf ("¿Ingresara otro productos?\n");
                   printf("1) Si \n 2) No\n");
                   scanf("%d", &compra);
-                  }
+                  } else { printf("ingrese un codigo valido");
+                            compra = 2; 
+                            break;
+                            }
+            
+            printf("%d es el total de la compra \n", Total);
+
                 
             } while (compra == 1);
 
-            printf("%d es el total de la compra \n", Total);
+            
             
  
      }
