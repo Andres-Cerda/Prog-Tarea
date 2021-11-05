@@ -36,7 +36,8 @@ int  codigo_producto_falla = 0;
 int  cantidad_productos_fallados_sala = 0;
 int  cantidad_productos_fallados_bodega = 0;
 
-int  codigo_producto_vendido = 0; 
+int  codigo_producto_vendido = 0;
+int  vendidos = 0; 
 int  cantidad_producto_vendido = 0;
 
 printf ("El Programa ha sido encendido\n");
@@ -156,36 +157,64 @@ default : /* esta opcion es para limitar las opciones a 1 y 2 */
                 scanf("%d", &codigo_producto_vendido);
                 printf("ingrese la cantidad de existencias que quiere vender \n");+
                 scanf("%d", &cantidad_producto_vendido);
-                if(producto[0] == codigo_producto_vendido){
+            if(producto[0] == codigo_producto_vendido){
                     if(Cantidad_Sala[0] >= cantidad_producto_vendido){ 
                         printf("El valor de ese articulo es %d \n", precios[0]);
                         printf("Se restaran %d existencias al producto %s \n", cantidad_producto_vendido, producto_1);
-                        producto[0] = producto[0] - cantidad_producto_vendido;
+                        Cantidad_Sala[0] = Cantidad_Sala[0] - cantidad_producto_vendido;
                         Total = Total + (precios[0] * cantidad_producto_vendido);
-                    } else { printf("Se restaran %d existencias al producto %s \n", cantidad_producto_vendido, producto_1);
-                      
-                      
-                      
-                    
+
+                    } else { printf("Se restaran %d existencias que faltan en la sala al producto %s desde la bodega \n", cantidad_producto_vendido, producto_1);
+                        vendidos = cantidad_producto_vendido - Cantidad_Sala[0];
+                        Cantidad_Sala[0] = Cantidad_Sala[0] - Cantidad_Sala[0];
+                        Cantidad_Bodega[0] = Cantidad_Bodega[0] - vendidos;
+                        printf("%d en sala y %d en bodega \n", Cantidad_Sala[0], Cantidad_Bodega[0]);
+                        Total = Total + (precios[0] * cantidad_producto_vendido);
+
                     }
+
             }   else if (producto[1] == codigo_producto_vendido){
                  if(Cantidad_Sala[1] >= cantidad_producto_vendido){ 
                         printf("El valor de ese articulo es %d \n", precios[1]);
                         printf("Se restaran %d existencias al producto %s \n", cantidad_producto_vendido, producto_2);
                         Total = Total + (precios[1] * cantidad_producto_vendido);
-                    } 
+
+                    }  else { printf("Se restaran %d existencias que faltan en la sala al producto %s desde la bodega \n", cantidad_producto_vendido, producto_2);
+                        vendidos = cantidad_producto_vendido - Cantidad_Sala[1];
+                        Cantidad_Sala[1] = Cantidad_Sala[1] - Cantidad_Sala[1];
+                        Cantidad_Bodega[1] = Cantidad_Bodega[1] - vendidos;
+                        printf("%d en sala y %d en bodega \n", Cantidad_Sala[1], Cantidad_Bodega[1]);
+                        Total = Total + (precios[1] * cantidad_producto_vendido);
+                    }
+
             }  else if (producto[2] == codigo_producto_vendido){
                 if(Cantidad_Sala[2] >= cantidad_producto_vendido){ 
                         printf("El valor de ese articulo es %d \n", precios[2]);
                         printf("Se restaran %d existencias al producto %s \n", cantidad_producto_vendido, producto_3);
                         Total = Total + (precios[2] * cantidad_producto_vendido);
+
+                    }  else { printf("Se restaran %d existencias que faltan en la sala al producto %s desde la bodega \n", cantidad_producto_vendido, producto_3);
+                        vendidos = cantidad_producto_vendido - Cantidad_Sala[2];
+                        Cantidad_Sala[2] = Cantidad_Sala[2] - Cantidad_Sala[2];
+                        Cantidad_Bodega[2] = Cantidad_Bodega[2] - vendidos;
+                        printf("%d en sala y %d en bodega \n", Cantidad_Sala[2], Cantidad_Bodega[2]);
+                        Total = Total + (precios[2] * cantidad_producto_vendido);
                     }
+
             } else if (producto[3] == codigo_producto_vendido){
                if(Cantidad_Sala[3] >= cantidad_producto_vendido){ 
                         printf("El valor de ese articulo es %d \n", precios[3]);
                         printf("Se restaran %d existencias al producto %s \n", cantidad_producto_vendido, producto_4);
                         Total = Total + (precios[3] * cantidad_producto_vendido);
+
+                    } else { printf("Se restaran %d existencias que faltan en la sala al producto %s desde la bodega \n", cantidad_producto_vendido, producto_4);
+                        vendidos = cantidad_producto_vendido - Cantidad_Sala[3];
+                        Cantidad_Sala[3] = Cantidad_Sala[3] - Cantidad_Sala[3];
+                        Cantidad_Bodega[3] = Cantidad_Bodega[3] - vendidos;
+                        printf("%d en sala y %d en bodega \n", Cantidad_Sala[3], Cantidad_Bodega[3]);
+                        Total = Total + (precios[3] * cantidad_producto_vendido);
                     }
+
             } else { printf("ingrese un codigo valido"); }
             
             if(producto[0] == codigo_producto_vendido 
