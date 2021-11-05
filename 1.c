@@ -19,26 +19,3 @@
                      } else { printf(" puto ");} } 
                      
                      }else {printf("puto 3 ");}  }*/
-
-#include <stdio.h>
-
-int main(){
-     
-     int arreglo[4][4]={{1,2,3,4},
-                        {1,2,3,4},
-                        {1,2,3,4},
-                        {1,2,3,4}};
-     
-   
-   if (/* condition */)
-   {
-        /* code */
-   }
-   
-
-   
-
-
-
-     return 0;
-}
