@@ -2,7 +2,7 @@
 
 int main () {
 
-
+/* Los codigos van en orden es decir el 101 es de las papas, el 102 es de los fideos, el 103 es del acite y el 104 es de la leche. */
 int  producto [4] = {101,102,103,104};
 int  precios[4] = {1000,500,1300,1000};
 int  Cantidad_Sala[4] = {8,8,7,5};
