@@ -34,13 +34,16 @@ int compra_cancelada = 0;
 
 int  codigo_productos_agregados = 0;
 int  cantidad_productos_agregados = 0;
+int  Otro_producto = 0;
 
 int  codigo_producto_robado = 0;
 int  cantidad_productos_robados = 0;
+int  Otro_producto_robado = 0;
 
 int  codigo_producto_falla = 0;
 int  cantidad_productos_fallados_sala = 0;
 int  cantidad_productos_fallados_bodega = 0;
+int  Otro_producto_fallado = 0;
 
 int  codigo_producto_vendido = 0;
 int  vendidos = 0; 
@@ -48,9 +51,6 @@ int  cantidad_producto_vendido = 0;
 
 printf ("El Programa ha sido encendido\n");
 printf ("Hola bienvenido al sistema regulador de mercaderia\n");
-
-
-
 printf ("En caso de tener usuario ingrese el numero 1 \nSi no tiene y desea uno, ingrese el numero 2\n");
 scanf("%d",&opcion);
 
@@ -268,7 +268,9 @@ default : /* esta opcion es para limitar las opciones a 1 y 2 */
                      printf("El codigo no esta validado, coloque uno que lo este\n");
                   } else { if( compra == 2) 
                            compra = 2;
-                           break;   }}
+                           break;   }
+                           
+                           }
                   
                             
             
@@ -322,9 +324,8 @@ default : /* esta opcion es para limitar las opciones a 1 y 2 */
 
             if (inventario == 1 ) {
 
-                     int  codigo_productos_agregados;
-                     int  cantidad_productos_agregados;
-
+                     do
+                     {
                      printf("Ingrese el codigo del producto que quiere agregar\n");
                      scanf("%d", &codigo_productos_agregados);
                      printf("Ingrese la cantidad de productos que quiere agregar\n");
@@ -356,13 +357,48 @@ default : /* esta opcion es para limitar las opciones a 1 y 2 */
                          Cantidad_Bodega[3]= Cantidad_Bodega[3] + cantidad_productos_agregados;
                          printf("El almacen a sido actualizado correctamente \n");
                      
-                     } else {  printf("El codigo ingresado no es correcto"); }
+                     } else {  printf("El codigo ingresado no es correcto\n"); }
 
+                     if(producto[0] == codigo_productos_agregados 
+                     || producto[1] == codigo_productos_agregados 
+                     || producto[2] == codigo_productos_agregados 
+                     || producto[3] == codigo_productos_agregados){ 
+
+                        printf ("¿Ingresara otro productos?\n");
+                        printf("1) Si \n 2) No\n");
+                        scanf("%d", &Otro_producto);
+                     }  else { if(producto[0] != codigo_productos_agregados 
+                              || producto[1] != codigo_productos_agregados 
+                              || producto[2] != codigo_productos_agregados 
+                              || producto[3] != codigo_productos_agregados) { 
+                     
+                     printf("El codigo no esta validado, coloque uno que lo este\n");} 
+                     
+                     else { if (Otro_producto == 2){ 
+                         
+                         Otro_producto = 2;
+                         break;
+
+                     }
+                    
+            }
+                          
+                     
+    }  
+
+
+                 
+
+                     } while (Otro_producto == 1 ); 
+
+        
+                  
+                     
 
         } else if (inventario == 2) { 
             
             printf("A continuacion le apareceran las causas por las que se descuentas los productos, eliga una por favor\n");
-            printf("1)Hurto\n 2)Fallo\n 3)introduzca el codigo y le diremos si fue vendido recientemente\n");
+            printf("1)Hurto\n 2)Fallo\n");
             scanf("%d", &inventario_2);
 
             switch (inventario_2)
@@ -370,6 +406,9 @@ default : /* esta opcion es para limitar las opciones a 1 y 2 */
 
             
             case 1 : 
+                     do
+                     {
+                        
                      
                      printf("Escriba el codigo del producto que robaron, por favor\n");
                      scanf("%d", &codigo_producto_robado);
@@ -422,14 +461,45 @@ default : /* esta opcion es para limitar las opciones a 1 y 2 */
 
                          } else { printf("No habian tantas existecias del producto %s en sala\n", producto_4);}
                      
-                   } else {  printf("El codigo ingresado no es correcto"); }
+                   } else {  printf("El codigo ingresado no es correcto\n"); }
+
+                    if(producto[0] == codigo_producto_robado
+                     || producto[1] == codigo_producto_robado 
+                     || producto[2] == codigo_producto_robado 
+                     || producto[3] == codigo_producto_robado){ 
+
+                        printf ("¿Ingresara otro productos?\n");
+                        printf("1) Si \n 2) No\n");
+                        scanf("%d", &Otro_producto_robado);
+                     }  else { if(producto[0] != codigo_producto_robado
+                              || producto[1] != codigo_producto_robado 
+                              || producto[2] != codigo_producto_robado 
+                              || producto[3] != codigo_producto_robado) { 
+                     
+                     printf("El codigo no esta validado, coloque uno que lo este\n");} 
+                     
+                     else { if (Otro_producto_robado == 2){ 
+                         Otro_producto_robado = 2;
+                         break;
+
+                     }
+                    
+            }
+                          
+                     
+    }
+
+
+                 
+
+                     } while (Otro_producto_robado == 1 );
 
                     
                 break;
             
             case 2:  
-            
-                     printf("Escriba el codigo del producto que tiene una falla o se ha vencido, por favor\n");
+            do
+            {        printf("Escriba el codigo del producto que tiene una falla o se ha vencido, por favor\n");
                      scanf("%d", &codigo_producto_falla);
                      printf("Indique cuantos productos fallaron en Bodega\n");
                      scanf("%d", &cantidad_productos_fallados_bodega);
@@ -446,7 +516,7 @@ default : /* esta opcion es para limitar las opciones a 1 y 2 */
                              printf("El almacen a sido actualizado correctamente \n"); 
                              printf("%d cantidad de %s \n",Cantidad_Bodega[0], producto_1);
                              } else { printf("No habian tantas existencias del producto %s en Bodega, introduzca un numero valido\n", producto_1); 
-                                      printf("Tenga en cuenta que hay %d existencias en Bodega", Cantidad_Bodega[0]);}
+                                      printf("Tenga en cuenta que hay %d existencias en Bodega\n", Cantidad_Bodega[0]);}
 
                          } if (cantidad_productos_fallados_sala != 0) {
                              if (Cantidad_Sala[0] >= cantidad_productos_fallados_sala) { 
@@ -456,7 +526,7 @@ default : /* esta opcion es para limitar las opciones a 1 y 2 */
                              printf("El almacen a sido actualizado correctamente \n");
                              printf("%d cantidad de %s \n",Cantidad_Sala[0], producto_1);
                              } else { printf("No habian tantas existencias del producto %s en Sala, introduzca un numero valido\n", producto_1); 
-                                      printf("Tenga en cuenta que hay %d existencias en Sala", Cantidad_Sala[0]); } }
+                                      printf("Tenga en cuenta que hay %d existencias en Sala\n", Cantidad_Sala[0]); } }
                              
                     } else if (producto[1] == codigo_producto_falla) {
                          if(cantidad_productos_fallados_bodega != 0){ 
@@ -467,7 +537,7 @@ default : /* esta opcion es para limitar las opciones a 1 y 2 */
                              printf("El almacen a sido actualizado correctamente \n"); 
                              printf("%d cantidad de %s \n",Cantidad_Bodega[1], producto_2);
                              } else { printf("No habian tantas existencias del producto %s en Bodega, introduzca un numero valido\n", producto_2); 
-                                      printf("Tenga en cuenta que hay %d existencias en Bodega", Cantidad_Bodega[1]);}
+                                      printf("Tenga en cuenta que hay %d existencias en Bodega\n", Cantidad_Bodega[1]);}
 
                          } if (cantidad_productos_fallados_sala != 0) {
                              if (Cantidad_Sala[1] >= cantidad_productos_fallados_sala) { 
@@ -477,7 +547,7 @@ default : /* esta opcion es para limitar las opciones a 1 y 2 */
                              printf("El almacen a sido actualizado correctamente \n");
                              printf("%d cantidad de %s \n",Cantidad_Sala[1], producto_1);
                              } else { printf("No habian tantas existencias del producto %s en Sala, introduzca un numero valido\n", producto_2);  
-                                      printf("Tenga en cuenta que hay %d existencias en Sala", Cantidad_Sala[1]);} }
+                                      printf("Tenga en cuenta que hay %d existencias en Sala\n", Cantidad_Sala[1]);} }
                              
                     } else if (producto[2] == codigo_producto_falla)
                         {
@@ -489,7 +559,7 @@ default : /* esta opcion es para limitar las opciones a 1 y 2 */
                              printf("El almacen a sido actualizado correctamente \n"); 
                              printf("%d cantidad de %s \n",Cantidad_Bodega[2], producto_3);
                              } else { printf("No habian tantas existencias del producto %s en Bodega, introduzca un numero valido\n", producto_3); 
-                                      printf("Tenga en cuenta que hay %d existencias en Bodega", Cantidad_Bodega[2]);
+                                      printf("Tenga en cuenta que hay %d existencias en Bodega\n", Cantidad_Bodega[2]);
                                       }
 
                          } if (cantidad_productos_fallados_sala != 0) {
@@ -500,7 +570,7 @@ default : /* esta opcion es para limitar las opciones a 1 y 2 */
                              printf("El almacen a sido actualizado correctamente \n");
                              printf("%d cantidad de %s \n",Cantidad_Sala[2], producto_3);
                              } else { printf("No habian tantas existencias del producto %s en Sala, introduzca un numero valido\n", producto_3);  
-                                      printf("Tenga en cuenta que hay %d existencias en Sala", Cantidad_Sala[2]); } }
+                                      printf("Tenga en cuenta que hay %d existencias en Sala\n", Cantidad_Sala[2]); } }
                              
                     } else if (producto[3] == codigo_producto_falla)
                         {
@@ -512,7 +582,7 @@ default : /* esta opcion es para limitar las opciones a 1 y 2 */
                              printf("El almacen a sido actualizado correctamente \n"); 
                              printf("%d cantidad de %s \n",Cantidad_Bodega[3], producto_4);
                              } else { printf("No habian tantas existencias del producto %s en Bodega, introduzca un numero valido\n", producto_4); 
-                                      printf("Tenga en cuenta que hay %d existencias en Bodega", Cantidad_Bodega[3]);
+                                      printf("Tenga en cuenta que hay %d existencias en Bodega\n", Cantidad_Bodega[3]);
                                       } 
 
                          } if (cantidad_productos_fallados_sala != 0) {
@@ -523,10 +593,41 @@ default : /* esta opcion es para limitar las opciones a 1 y 2 */
                              printf("El almacen a sido actualizado correctamente \n");
                              printf("%d cantidad de %s \n",Cantidad_Sala[3], producto_4);
                              } else { printf("No habian tantas existencias del producto %s en Sala, introduzca un numero valido\n", producto_4);  
-                                      printf("Tenga en cuenta que hay %d existencias en Sala", Cantidad_Sala[3]);} }
+                                      printf("Tenga en cuenta que hay %d existencias en Sala\n", Cantidad_Sala[3]);} }
 
 
                     } else { printf("El codigo ingresado es erroneo.\n"); }
+
+                    if(producto[0] == codigo_producto_falla
+                     || producto[1] == codigo_producto_falla
+                     || producto[2] == codigo_producto_falla 
+                     || producto[3] == codigo_producto_falla){ 
+
+                        printf ("¿Ingresara otro productos?\n");
+                        printf("1) Si \n 2) No\n");
+                        scanf("%d", &Otro_producto_fallado);
+                     }  else { if(producto[0] != codigo_producto_falla
+                              || producto[1] != codigo_producto_falla
+                              || producto[2] != codigo_producto_falla
+                              || producto[3] != codigo_producto_falla) { 
+                     
+                     printf("El codigo no esta validado, coloque uno que lo este\n");} 
+                     
+                     else { if (Otro_producto_fallado == 2){ 
+                         Otro_producto_fallado = 2;
+                         break;
+
+                     }
+                    
+            }
+                          
+                     
+    }
+
+
+                 
+
+                     } while (Otro_producto_fallado == 1 );
 
                           
                         break;
