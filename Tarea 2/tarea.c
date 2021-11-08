@@ -526,24 +526,24 @@ default : /* esta opcion es para limitar las opciones a 1 y 2 */
                                       printf("Tenga en cuenta que hay %d existencias en Sala", Cantidad_Sala[3]);} }
 
 
-                    } else { printf("El codigo ingresado es erroneo\n"); }
+                    } else { printf("El codigo ingresado es erroneo.\n"); }
 
                           
                         break;
 
 
-            default: printf("opcion 3");
+            default: printf("Ingrese una opcion valida.");
                 break;
                 
                 }  
             
 
 
-        } else {printf("ingrese una opcion valida"); }
+        } else {printf("ingrese una opcion valida."); }
 
 
 
-    } else {  printf("ingrese una opcion valida");}
+    } else {  printf("ingrese una opcion valida.");}
     
 } 
            
