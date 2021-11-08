@@ -11,6 +11,7 @@ int Total_Bodega_Sala;
 
 long usuario_trabajador0 = 123456789;
 long usuario_trabajador = 0; 
+int  usuario_bloqueado = 0; 
 
 char producto_1[6] = "Papas";
 char producto_2[7] = "Fideos";
@@ -26,6 +27,10 @@ int  inventario = 0;
 int  inventario_2 = 0;
 int  compra = 0;
 int  Total = 0;
+int  Pago = 0;
+int  Restante = 0; 
+
+int compra_cancelada = 0;
 
 int  codigo_productos_agregados = 0;
 int  cantidad_productos_agregados = 0;
@@ -88,7 +93,8 @@ case 1 : /* a continuacion se hara una estructura if para que cuando ingrese el 
 
                              } else {  
 
-                               printf ( "Clave incorrecta, usuario bloquedo");
+                               printf ( "Clave incorrecta, usuario bloqueado");
+                               usuario_bloqueado = 1;
 
 
 
@@ -124,6 +130,9 @@ case 2 : /* aqui lo que se desea es crear el usuario, entonces se le pedira el r
              
              if(usuario_creado == usuario_creado0){
                  printf("Usuario ingresado correctamente\n\n");
+             } else { 
+                 printf("Se reiniciara el programa, hasta luego.");
+                usuario_bloqueado = 1;
              }
 
         
@@ -138,7 +147,7 @@ default : /* esta opcion es para limitar las opciones a 1 y 2 */
 
  /* el if de a continuacion es para que al momento de que la opcion ingresada no sea 1 o 2, no siga con las demas intrucciones 
  y solo se apague el programa*/          
-} if (opcion == 1 || opcion == 2) {
+} if (opcion == 1 && usuario_bloqueado == 0|| opcion == 2 && usuario_bloqueado == 0) {
 
     printf("-----------------------\n");
     printf("---------Menu----------\n");
@@ -156,7 +165,7 @@ default : /* esta opcion es para limitar las opciones a 1 y 2 */
             {    
                 printf("ingrese el codigo del producto quiere vender \n");
                 scanf("%d", &codigo_producto_vendido);
-                printf("ingrese la cantidad de existencias que quiere vender \n");+
+                printf("ingrese la cantidad de existencias que quiere vender \n");
                 scanf("%d", &cantidad_producto_vendido);
             if(producto[0] == codigo_producto_vendido){
                     if(Cantidad_Sala[0] >= cantidad_producto_vendido){ 
@@ -239,7 +248,7 @@ default : /* esta opcion es para limitar las opciones a 1 y 2 */
 
                     }
 
-            } else { printf("ingrese un codigo valido"); }
+            } else { printf("ingrese un codigo valido\n"); }
             
             if(producto[0] == codigo_producto_vendido 
             || producto[1] == codigo_producto_vendido 
@@ -249,15 +258,57 @@ default : /* esta opcion es para limitar las opciones a 1 y 2 */
                   printf ("¿Ingresara otro productos?\n");
                   printf("1) Si \n 2) No\n");
                   scanf("%d", &compra);
-                  } else { printf("ingrese un codigo valido");
-                            compra = 2; 
-                            break;
-                            }
+                  
+                  } else { if ( codigo_producto_vendido != 101 
+                            || codigo_producto_vendido != 102 
+                            || codigo_producto_vendido != 103 
+                            || codigo_producto_vendido != 104)
+                    
+                  {
+                     printf("El codigo no esta validado, coloque uno que lo este\n");
+                  } else { if( compra == 2) 
+                           compra = 2;
+                           break;   }}
+                  
+                            
             
-            printf("%d es el total de la compra \n", Total);
+            printf("$%d es el total de la compra \n", Total);
 
                 
             } while (compra == 1);
+
+            printf("Ingrese el efectivo entregado a continuacion\n");
+            scanf("%d", &Pago);
+
+            if(Total == Pago ){
+
+                printf("Dado que el pago fue exacto, el vuelto sera $0\n");
+                printf("Gracias por su compra, hasta luego.\n");
+            } else if (Total > Pago)
+            {
+                printf("le faltan $%d \n", Total-Pago);
+                printf("Si desea cancelar la compra ingrese 1, si desea agregar lo que falta ingrese 2.\n");
+                scanf("%d", &compra_cancelada);
+                
+                if(compra_cancelada == 2){
+                printf("En caso de que falte efectivo por segunda vez se cancelara la compra\n");    
+                printf("Ingrese el efectivo restante.\n");    
+                scanf("%d", &Restante);
+              
+                  if(Total == Pago + Restante){
+                      printf("Muchas gracias por la compra, hasta luego.\n");
+                      } else if (Total > (Pago + Restante)){ 
+                          printf("Dado que por segunda vez falta, se cancelara la compra\n");
+                      } else{ 
+                          printf("Su vuelto es %d, hasta luego\n", (Pago + Restante)- Total);}
+                      
+                } else {printf("Muchas gracias por su visita, hasta luego\n");}
+
+            } else {
+                
+                printf("Su vuelto es $%d, hasta luego.\n", Pago-Total); }
+             
+
 
             
             
