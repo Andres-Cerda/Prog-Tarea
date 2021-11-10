@@ -30,7 +30,7 @@ int  Total = 0;
 int  Pago = 0;
 int  Restante = 0; 
 
-int compra_cancelada = 0;
+int  compra_cancelada = 0;
 
 int  codigo_productos_agregados = 0;
 int  cantidad_productos_agregados = 0;
@@ -156,17 +156,23 @@ default : /* esta opcion es para limitar las opciones a 1 y 2 */
     printf("2) editar inventario\n");
     printf("elija una de las dos opciones\n");
     scanf("%d", &menu); } 
-
+  /* es if de a continuacion es para dar la opciones del menu*/
     if(menu == 1 || menu == 2 ) {
 
         if(menu == 1 ){ 
-
+         /* el menu 1 seria venta. Se pide el codigo y la cantidad para asi ver si queda en sala y en caso de que no quede 
+            se busca en bodega. Si en aun con los dos almacenamientos no alcanza se le dice que solo hay X cantidad y que no puede
+            pedir mas. Se repite cuatro veces ya que hay cuatro productos*/
             do
+            /* el siguiente do-while es para el momento en que se quieran agregar mas productos*/
             {    
                 printf("ingrese el codigo del producto quiere vender \n");
                 scanf("%d", &codigo_producto_vendido);
                 printf("ingrese la cantidad de existencias que quiere vender \n");
                 scanf("%d", &cantidad_producto_vendido);
+
+                /*al momento de agregar un producto se dira el precio y se restaran las existencias de la sala o bodega
+                  luego se iran sumando los precios para dar un total y asi pueda pagar*/
             if(producto[0] == codigo_producto_vendido){
                     if(Cantidad_Sala[0] >= cantidad_producto_vendido){ 
                         printf("El valor de ese articulo es %d \n", precios[0]);
@@ -249,7 +255,8 @@ default : /* esta opcion es para limitar las opciones a 1 y 2 */
                     }
 
             } else { printf("ingrese un codigo valido\n"); }
-            
+            /* el if es para que el progama solo siga si el codigo esta dentro de los asignados y asi le ofrezca si quiere poner mas 
+               productos*/
             if(producto[0] == codigo_producto_vendido 
             || producto[1] == codigo_producto_vendido 
             || producto[2] == codigo_producto_vendido
@@ -258,7 +265,8 @@ default : /* esta opcion es para limitar las opciones a 1 y 2 */
                   printf ("¿Ingresara otro productos?\n");
                   printf("1) Si \n 2) No\n");
                   scanf("%d", &compra);
-                  
+                  /* este else tiene un if dentro que es para que al momento de poner un codigo que no sea los que estan dentro,
+                     no siga.*/
                   } else { if ( codigo_producto_vendido != 101 
                             || codigo_producto_vendido != 102 
                             || codigo_producto_vendido != 103 
@@ -266,6 +274,7 @@ default : /* esta opcion es para limitar las opciones a 1 y 2 */
                     
                   {
                      printf("El codigo no esta validado, coloque uno que lo este\n");
+                     /* al momento de cambiar "compra" a 2, se cumple que la condicion del while es falsa osea que sale de la iteracion*/ 
                   } else { if( compra == 2) 
                            compra = 2;
                            break;   }
@@ -278,7 +287,9 @@ default : /* esta opcion es para limitar las opciones a 1 y 2 */
 
                 
             } while (compra == 1);
-
+            /*a continuacion se pedira que ingrese el efectivo que le dio el cliente para pagar la compra
+              en caso de que le falte el programa le dira si quiere o no pagar lo que falta y en caso de que le falte
+              le dara vuelto*/
             printf("Ingrese el efectivo entregado a continuacion\n");
             scanf("%d", &Pago);
 
@@ -318,13 +329,16 @@ default : /* esta opcion es para limitar las opciones a 1 y 2 */
      }
 
            else if(menu == 2){
-
+          /* el menu 2 se separa en dos partes, una es ingresar y la otra es descontar, se hace con un if*/
              printf("Ingrese numero 1 si desea ingresar productos y numero 2 si desea descontarlos\n");
              scanf("%d", &inventario);
 
             if (inventario == 1 ) {
 
                      do
+
+                     /* la parte de ingresar se hace pidiendo cantidad que quiere agregary el codigo pero solo en bodega.
+                      Se les suman la cantidad de existencias al producto que se eligio*/
                      {
                      printf("Ingrese el codigo del producto que quiere agregar\n");
                      scanf("%d", &codigo_productos_agregados);
@@ -358,7 +372,7 @@ default : /* esta opcion es para limitar las opciones a 1 y 2 */
                          printf("El almacen a sido actualizado correctamente \n");
                      
                      } else {  printf("El codigo ingresado no es correcto\n"); }
-
+                 /*lo mismo que arriba, se hace un if para que no pase de largo y darle la opcion de agregar mas o no*/
                      if(producto[0] == codigo_productos_agregados 
                      || producto[1] == codigo_productos_agregados 
                      || producto[2] == codigo_productos_agregados 
@@ -490,7 +504,7 @@ default : /* esta opcion es para limitar las opciones a 1 y 2 */
     }
 
 
-                 
+                 /*en caso de no querer agregar se cambia la variable a 2 y se sale del do-while*/
 
                      } while (Otro_producto_robado == 1 );
 
@@ -499,13 +513,18 @@ default : /* esta opcion es para limitar las opciones a 1 y 2 */
             
             case 2:  
             do
+            /*en este caso es diferenet a arriba,ya que, ahora se descuentan de bodega y sala. De nuevo se descuentas dependiendo del
+            codigo.*/
             {        printf("Escriba el codigo del producto que tiene una falla o se ha vencido, por favor\n");
                      scanf("%d", &codigo_producto_falla);
                      printf("Indique cuantos productos fallaron en Bodega\n");
                      scanf("%d", &cantidad_productos_fallados_bodega);
                      printf("Indique cuantos productos fallaron en Sala\n");
                      scanf("%d", &cantidad_productos_fallados_sala);
-
+           /*hay varios if, el primero es para ver que producto se quiere descontar, el segundo es para ver si hay tantas
+             existencias para descontar en caso de que no, se le avisa y se le dice cuantas hay. En caso de que si hayan 
+            se restaran X cantidad de la bodega o sala y luego se indicara como quedo el almacen luego de descontar.
+            El mismo proceso para bodega y sala y para los 4 productos. */
                      if (producto[0] == codigo_producto_falla)
                         {
                          if(cantidad_productos_fallados_bodega != 0){ 
@@ -597,7 +616,7 @@ default : /* esta opcion es para limitar las opciones a 1 y 2 */
 
 
                     } else { printf("El codigo ingresado es erroneo.\n"); }
-
+                   /*de nuevo el mismo if para que no pase de largo al momento de que no sea un codigo valido */
                     if(producto[0] == codigo_producto_falla
                      || producto[1] == codigo_producto_falla
                      || producto[2] == codigo_producto_falla 
