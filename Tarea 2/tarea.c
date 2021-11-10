@@ -1,3 +1,20 @@
+/* Universidad de La Frontera
+* Departamento de Ingeniería Eléctrica
+*
+* ICC-202 PROGRAMACION DE COMPUTADORES
+*
+* Tarea 2
+*
+* Autores: 
+* Cristobal Pincheira. (c.pincheira07@ufromail.cl)
+* Nely Castro (desaparecida en combate)
+* Andrés Cerda. (a.cerda07@ufromail.cl)
+*
+* Fecha: 09/11/2021
+*
+* Programa dedicado a regular la mercancia que llega al local y tambien se encarga de descontarlo en caso de que fuera hurtado o haya 
+fallado. 
+*/
 #include <stdio.h>
 
 int main () {
