@@ -46,7 +46,7 @@ int main(){
     turnos = turnos + 1;
 
     imprimirTablero();
-
+    // En el momento que turnos se igual a 5 es decir en la tercera vuelta, le tocara al jugador X entonces ahi se sale del while
     if(turnos == 5){
 
         break;
