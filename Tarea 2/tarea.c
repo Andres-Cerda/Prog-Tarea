@@ -210,7 +210,7 @@ default : // Esta opción es para limitar las opciones a 1 y 2.
                         if(cantidadProductoVendido > 0 ){  
                         // En caso de no ser suficiente con los productos en sala se hará un total de bodega y sala. 
                         totalBodegaSala = cantidadSala[0] + cantidadBodega[0];
-                             // Si la cantidad de existencias en bodega y sala entonces se ejecutara el if. 
+                             // Si la cantidad de existencias en bodega y sala es mayor entonces se ejecutara el if. 
                              if(totalBodegaSala >= cantidadProductoVendido ){ 
                              printf("Se restaran %d existencias que faltan en la sala al producto %s desde la bodega \n", cantidadProductoVendido, producto_1);
                              // Se guardará en la variable vendidos para restarle eso a la cantidad en bodega.
@@ -316,6 +316,7 @@ default : // Esta opción es para limitar las opciones a 1 y 2.
                   printf ("¿Ingresara otro productos?\n");
                   printf("1) Si \n 2) No\n");
                   scanf("%d", &compra);
+                  
                  // Este else tiene dentro un if que igual hace de límite para que al momento de que no sea, imprima que el Código no es válido.
                   } else { if ( codigoProductoVendido != 101 
                             || codigoProductoVendido != 102 
@@ -382,7 +383,7 @@ default : // Esta opción es para limitar las opciones a 1 y 2.
                 // Ya que el pago es mayor al total se le entregara su vuelto. 
                  printf("Su vuelto es $%d, hasta luego.\n", Pago-Total); }
                  
-                 }
+                 } else {printf("Dado que el valor de la compra es cero, se tomara como que no hay una venta, hasta luego");}
              
 
 
