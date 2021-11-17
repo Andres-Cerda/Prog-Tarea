@@ -31,7 +31,7 @@ int main(){
  while (turnos < 5)
  {
      
-   // Turno X
+   // Turno jugador X
     printf("Turno del jugador X\n");
     printf ("Por favor haga la jugada de modo X,Y\n"); 
     scanf ("%i,%i",&fila,&columna);
@@ -112,7 +112,7 @@ do {
 
 } 
     
-    // Turno X
+    // Turno jugador X
     printf("Turno del jugador X\n");
     printf ("Por favor haga la jugada de modo X,Y\n"); 
     scanf ("%i,%i",&fila,&columna);
