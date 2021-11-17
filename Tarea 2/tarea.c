@@ -70,7 +70,7 @@ int  cantidadProductoVendido = 0;
 printf ("El Programa ha sido encendido\n");
 printf ("Hola bienvenido al sistema regulador de mercaderia\n");
 printf ("En caso de tener usuario ingrese el numero 1 \nSi no tiene y desea uno, ingrese el numero 2\n");
-scanf("%d",&opcion);
+scanf  ("%d",&opcion);
 
 // Se le pedirá al usuario que ingrese una opción, que en este caso serian 1 o 2 para que la función "switch" la lea. 
 
