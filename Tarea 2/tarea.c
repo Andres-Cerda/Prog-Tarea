@@ -382,7 +382,7 @@ default : // Esta opción es para limitar las opciones a 1 y 2.
             } else {
                 // Ya que el pago es mayor al total se le entregara su vuelto. 
                  printf("Su vuelto es $%d, hasta luego.\n", Pago-Total); }
-                 
+                 // Para que al momento en que la compra sea cero, se hace este else. 
                  } else {printf("Dado que el valor de la compra es cero, se tomara como que no hay una venta, hasta luego");}
              
 
