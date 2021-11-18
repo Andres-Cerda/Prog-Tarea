@@ -100,6 +100,7 @@ do {
     turnos = turnos + 1; 
 
      verificarGanador_O();
+     
 
      if(ganador == 1){
 
@@ -127,7 +128,20 @@ do {
     turnos = turnos + 1;
 
     imprimirTablero();
+    
+    verificarGanador_X();
 
+     if(ganador == 1 ){
+
+    printf("Felicidades el jugador X ha ganado\n");
+    break;
+
+}
+
+    
+
+    
+    
 
 } while ( ganador == 0 && turnos < 9 );
 
