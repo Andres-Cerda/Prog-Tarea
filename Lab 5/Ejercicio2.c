@@ -2,7 +2,7 @@
 
 int main(){
 
-    /* se muestra una descripcion del programa */
+    //se muestra una descripcion del programa 
 
     printf(" Si no recuerda que caracte de código ASCII es el que tienes, escribalo y nosotros se lo daremos");
 
@@ -12,6 +12,14 @@ int main(){
     scanf("%c", &caracter);
 
     printf(" El formato en codigo ASCII de %c es %i ", caracter, caracter);
+   
+   // Otra forma de hacerlo
+   /* int num1;
+
+    printf(" Si no recuerda que caracte de código ASCII es el que tienes, escribalo y nosotros se lo daremos \n");
+    scanf("%i", &num1);
+
+    printf("Su numero en codigo ASCII es %c " , (char)num1);*/
 
     return 0; 
     }
