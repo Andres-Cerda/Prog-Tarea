@@ -27,7 +27,7 @@ int main(){
     printf("4.- Añadir registro en agenda\n");
     printf("5.- Eliminar agenda\n");
     printf("6.- Salir\n");
-    printf("Ingrese su opción:\n");
+    printf("Ingrese su opcion:\n");
     scanf("%d", &opcion);
 
     switch (opcion)
@@ -49,9 +49,7 @@ int main(){
                baseDeDatos = fopen(nombreAgenda, "w");
                printf("La agenda se ha creado correctamente");
                fclose(baseDeDatos); 
-               baseDeDatos = fopen ( "contactos.txt","r" );
-
-                fclose(baseDeDatos);
+               
 
                printf("Desea agregar otra agenda?\n");
                printf("1 es SI y 2 es NO\n");
@@ -138,7 +136,7 @@ int main(){
         
     case 5:    // se listan con "system" y se eliminan con el comando remove
                printf("Las agendas de contactos disponibles para eliminar son: \n");
-               system("dir *.txt");
+               system("dir *.txt"); 
                printf("Ingrese el nombre de la agenda que quiere eliminar:\n");
                scanf("%s", nombreAgenda);
                strcat(nombreAgenda, ".txt");  
