@@ -1,0 +1,4 @@
+101 papas 
+102 aceite
+103 bebida
+104 leche
