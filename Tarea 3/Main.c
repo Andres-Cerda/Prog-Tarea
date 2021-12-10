@@ -136,12 +136,12 @@ default : // Esta opción es para limitar las opciones a 1 y 2.
     printf("  // |  //  | |   //___) ) //   ) ) //   / / \n");
     printf(" //  | //   | |  //       //   / / //   / /  \n");
     printf("//   |//    | | ((____   //   / / ((___( (   \n\n");
-    printf("1) Listar agendas de cada seccion\n");
-    printf("2) Crear una nueva agenda de seccion");
-    printf("3) Mostrar contenido de una agenda");
-    printf("3) venta de producto\n");
-    printf("4) editar inventario\n");
-    printf("elija una de las dos opciones\n");
+    printf("1) Listar agendas de cada seccion \n");
+    printf("2) Crear una nueva agenda de seccion \n");
+    printf("3) Mostrar contenido de una agenda \n");
+    printf("4) venta de producto \n");
+    printf("5) editar inventario \n");
+    printf("elija una de las dos opciones \n");
     scanf("%d", &menu); } 
     // Es if de a continuación es para dar las opciones del menú.
     if(menu == 1 || menu == 2 || menu == 3 || menu == 4) {
@@ -160,10 +160,12 @@ default : // Esta opción es para limitar las opciones a 1 y 2.
            do
            {
              
-           
                printf("Ingrese el nombre nueva seccion de productos que quiere crear:\n");
                scanf("%s", agendaSeccionNueva);
-               strcat(agendaSeccionNueva, ".txt");          
+                 
+               strcat(agendaSeccionNueva, "-Codigos.dat");  
+               strcat(agendaSeccionNueva, "-Nombres.txt");
+               strcat(agendaSeccionNueva, "-Cantidad.dat");         
                baseDeDatos = fopen(agendaSeccionNueva, "w");
                printf("La agenda se ha creado correctamente");
                fclose(baseDeDatos); 

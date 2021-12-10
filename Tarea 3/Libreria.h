@@ -50,6 +50,10 @@ int  cantidadProductoVendido = 0;
 
 // Nuevas varianbles 
 
+int  codigosProductos[1000];
+int  cantidadProducots[1000];
+char nombresProducto[100];
+
 char agendaSeccionNueva[50];
 int  Cantidad_Por_Producto[1000];
 FILE * baseDeDatos;
