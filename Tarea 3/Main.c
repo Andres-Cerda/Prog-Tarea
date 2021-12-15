@@ -149,7 +149,7 @@ default : // Esta opción es para limitar las opciones a 1 y 2.
 
         if(menu == 1){ //lista las agendas llamando al sistema con el comando "system" y elige que tipo de archivo busca con el *
           
-               printf("Las agendas disponibles son: \n");
+               printf("Las secciones disponibles son: \n");
                system("dir *.txt");   
                
                }
@@ -162,13 +162,14 @@ default : // Esta opción es para limitar las opciones a 1 y 2.
              
                printf("Ingrese el nombre nueva seccion de productos que quiere crear:\n");
                scanf("%s", agendaSeccionNueva);
-                 
-               strcat(agendaSeccionNueva, "-Codigos.dat");  
-               strcat(agendaSeccionNueva, "-Nombres.txt");
-               strcat(agendaSeccionNueva, "-Cantidad.dat");         
+
+               // Nombre del producto
+
+               strcat(agendaSeccionNueva, "-Productos.txt");         
                baseDeDatos = fopen(agendaSeccionNueva, "w");
                printf("La agenda se ha creado correctamente");
                fclose(baseDeDatos); 
+
                
 
                printf("Desea agregar otra agenda?\n");
@@ -188,6 +189,14 @@ default : // Esta opción es para limitar las opciones a 1 y 2.
             
              
             
+        }
+
+        if (menu == 4)
+        
+        {
+
+
+
         }
         
 
